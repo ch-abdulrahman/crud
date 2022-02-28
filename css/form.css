@@ -1,0 +1,284 @@
+.input-form {
+    max-width: 650px;
+    margin: 40px auto;
+    transition: margin-top 0.3s ease;
+}
+
+.input-form.add-margin {
+    margin-top: 86px;
+}
+
+.input-form .container {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 40px 30px;
+    flex-basis: 650px;
+}
+
+.input-form .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-form .col50 {
+    width: 49%;
+}
+
+.input-form .col100 {
+    width: 100%;
+}
+
+.input-form .field {
+    margin-top: 50px;
+}
+
+.input-form .field .input-area {
+    height: 47px;
+    width: 100%;
+    position: relative;
+}
+
+.input-form label {
+    text-transform: capitalize;
+    position: absolute;
+    top: -32px;
+    left: 0;
+    transition: color 0.2s;
+}
+
+.input-form label .require {
+    color: var(--primary-color);
+    margin-left: 2px;
+}
+
+.input-form label .optional {
+    color: var(--grey-color);
+    margin-left: 2px;
+    font-size: 14px;
+}
+
+.input-form input::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: var(--grey-color);
+    font-size: 15px;
+    text-transform: capitalize;
+}
+
+.input-form input::-moz-placeholder {
+    /* Firfox */
+    color: var(--grey-color);
+    font-size: 15px;
+    text-transform: capitalize;
+}
+
+.input-form input,
+.input-form select {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    background: none;
+    caret-color: var(--primary-color);
+    border: 1px solid var(--grey-color);
+    transition: all 0.2s ease;
+}
+
+.input-form select {
+    appearance: none;
+    padding-right: 40px;
+}
+
+.gender input[type="radio"] {
+    display: none;
+}
+
+/*@@@@@ RADIO BUTTONS @@@@@*/
+
+.gender .radio-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.gender label.gender-options {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-transform: capitalize;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+
+.gender label.gender-options .dot {
+    height: 17px;
+    width: 17px;
+    background: #d9d9d9;
+    background: #ffffff;
+    border: 1px solid #666;
+    border-radius: 50%;
+    position: relative;
+}
+
+.input-form label.gender-options .dot::before {
+    position: absolute;
+    content: "";
+    top: 2px;
+    left: 2px;
+    width: 9px;
+    height: 9px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 0.3s ease;
+}
+
+.gender label.gender-options span {
+    margin-left: 7px;
+    margin-right: 13px;
+    text-transform: capitalize;
+}
+
+.gender #male:checked~label.male .dot,
+.gender #female:checked~label.female .dot,
+.gender #other:checked~label.other .dot {
+    border: 2px solid var(--primary-color);
+}
+
+.gender #male:checked~label.male .dot::before,
+.gender #female:checked~label.female .dot::before,
+.gender #other:checked~label.other .dot::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.gender #male:checked~label.male span,
+.gender #female:checked~label.female span,
+.gender #other:checked~label.other span {
+    color: var(--primary-color);
+}
+
+/*@@@@@@@ ICONS @@@@@@@*/
+
+.input-form .input-area i {
+    position: absolute;
+    top: 50%;
+    font-size: 16px;
+    pointer-events: none;
+    transform: translateY(-50%);
+    background: var(--body-color);
+}
+
+.input-form .input-area i.fa-angle-down {
+    font-size: 20px;
+    right: 15px;
+}
+
+.input-form .input-area .error-icon {
+    right: 15px;
+    color: #dc3545;
+}
+
+.input-form .input-area .valid-icon {
+    right: 15px;
+    color: var(--primary-color);
+}
+
+.input-form .field .error,
+.input-form .field .valid {
+    display: none;
+}
+
+.input-form .field .error .error-txt {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #dc3545;
+    text-transform: lowercase;
+}
+
+.input-form .field .error .error-txt::first-letter {
+    text-transform: uppercase;
+}
+
+/* These classes injected by javascript */
+
+.input-form .field.error .error,
+.input-form .field.valid .valid {
+    display: block;
+}
+
+.input-form .field.error input,
+.input-form .field.error select {
+    border-color: #dc3545;
+}
+
+.input-form .field.error input,
+.input-form .field.valid input {
+    padding-right: 40px;
+}
+
+.input-form .field.focus input,
+.input-form .field.focus select {
+    border-color: var(--primary-color);
+}
+
+.input-form .field.focus>.input-area>label {
+    color: var(--primary-color);
+}
+
+.input-form .field.shake {
+    animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        margin-left: 0px;
+    }
+
+    20%,
+    80% {
+        margin-left: -12px;
+    }
+
+    40%,
+    60% {
+        margin-left: 12px;
+    }
+}
+
+.input-form .form-btn {
+    width: 115px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    margin-top: 33px;
+    font-size: 18px;
+    color: var(--white-color);
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    background-color: var(--primary-color);
+}
+
+.input-form .form-btn:hover {
+    background-color: var(--hover-color);
+}
+
+@media screen and (max-width: 610px) {
+    .input-form .row {
+        flex-direction: column;
+    }
+
+    .input-form .col50 {
+        width: 100%;
+    }
+}
